@@ -28,7 +28,7 @@ It detects suspicious transactions in real time using rule-based intelligence an
 - **Hosting:** Netlify (Frontend), Render (Backend)
 
 ## 🌐 Live Links
-- Frontend: *(Netlify link)*
+- Frontend: https://clever-alfajores-73460b.netlify.app/
 - ML Backend API: https://fraudshield-ai-svh9.onrender.com/docs
 
 ## 📌 Project Status
