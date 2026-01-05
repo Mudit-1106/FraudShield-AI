@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FraudShield AI | Kavach Nexus</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script type="module" src="firebase.js" defer></script>
+  <script type="module" src="script.js" defer></script>
+  
+</head>
+<body>
+
+
+
+<!-- ===================== TOP BAR ===================== -->
+<header class="topbar">
+  <div class="brand-text">
+    <span class="brand-title">FraudShield AI</span>
+    <span class="brand-sub">Kavach Nexus</span>
+  </div>
+
+  <button id="balanceBtn" class="balance-btn">👁 Show Balance</button>
+
+<div id="profileBtn" class="profile">
+  <div class="avatar">👤</div>
+</div>
+
+<span id="balanceAmount" class="balance hidden">₹124560</span>
+  <!--<div class="top-actions">
+    <div class="balance-box">
+      <button class="balance-btn" onclick="toggleBalance()">👁 Show Balance</button>
+      <button id="balanceBtn">👁 Show Balance</button>
+    </div>
+    <div class="profile" onclick="toggleProfile(event)">
+      <div class="avatar">👤</div>
+      <div class="profile-text">
+        <span class="name">Shiv Shanker</span>
+        <span class="uid">FS1023</span>
+      </div>-->
+
+      <div id="profileDropdown" class="profile-dropdown hidden">
+  <h4>User Profile</h4>
+
+  <p><b>Name:</b> <span id="profileName">Shiv Shanker</span></p>
+  <p><b>Email:</b> <span id="profileEmail">shivshanker@gmail.com</span></p>
+  <p><b>Joined:</b> <span id="profileJoined">15 Aug 2024</span></p>
+  <p><b>Balance:</b> <span id="profileBalance">₹124560</span></p>
+  <p><b>Role:</b> <span id="profileRole">User</span></p>
+
+  <hr>
+  <button onclick="switchProfile('user')">Switch to User</button>
+  <button onclick="switchProfile('admin')">Switch to Admin</button>
+</div>
+    </div>
+  </div>
+  
+</header>
+
+<div class="layout">
+<!-- ===================== SIDEBAR ===================== -->
+<aside class="sidebar">
+  <ul>
+    <!--<li class="active" onclick="showSection('dashboard',this)">Dashboard</li>-->
+    <li onclick="showSection('send',this)">Send</li>
+    <li onclick="showSection('receive',this)">Receive</li>
+    <li id="fraudAlertsNav" onclick="showSection('alerts')">Fraud Alerts</li>
+    <li onclick="showSection('request',this)">Request</li>
+    <li onclick="showSection('autocredit',this)">Auto-Credit</li>
+    <li onclick="showSection('alerts',this)">Fraud Alerts</li>
+    <li onclick="showSection('settings',this)">Settings</li>
+    <!--<li onclick="logout()">Logout</li>-->
+    <li id="logoutBtn">Logout</li>
+  </ul>
+</aside>
+
+<!-- ===================== MAIN CONTENT ===================== -->
+<main class="content">
+
+<!-- ===================== DASHBOARD ===================== -->
+<section id="dashboard" class="section">
+
+  <h1 class="dash-title">FraudShield AI – Intelligent Fraud Detection Platform</h1>
+
+  <p class="dash-subtitle">
+    FraudShield AI is a behavior-driven fraud detection system developed under
+    <b>Project Kavach Nexus</b>. It continuously analyzes transaction context
+    to detect suspicious activity before financial loss occurs.
+  </p>
+
+  <!-- -------- Overview -------- -->
+  <div class="dash-card">
+    <h3>🛡 System Overview</h3>
+    <p>
+      The platform monitors transaction amount, time, location, device
+      fingerprint, sender–receiver relationship, and historical behavior.
+      Instead of reacting after fraud, FraudShield AI focuses on
+      <b>early risk identification</b>.
+    </p>
+  </div>
+
+  <!-- -------- Methodology -------- -->
+  <div class="dash-card">
+    <h3>⚙️ Concept & Methodology</h3>
+    <ol>
+      <li>User initiates a transaction</li>
+      <li>Transaction context is captured automatically</li>
+      <li>Rule-based checks run instantly</li>
+      <li>User behavior profile is compared</li>
+      <li>AI model calculates fraud risk score</li>
+      <li>Decision engine approves, warns, or blocks</li>
+    </ol>
+  </div>
+
+  <!-- -------- Risk Assessment -------- -->
+  <div class="dash-card">
+    <h3>📊 Fraud Risk Assessment</h3>
+    <div class="risk-meter">
+      <span>Low</span>
+      <div class="meter">
+        <div class="meter-fill"></div>
+      </div>
+      <span>High</span>
+    </div>
+
+    <div class="explain-box">
+      <ul>
+        <li>Unusual transaction location</li>
+        <li>High amount compared to normal behavior</li>
+        <li>New device or IP address</li>
+        <li>Unknown sender or receiver</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- -------- User Behavior -------- -->
+  <div class="dash-card">
+    <h3>🧠 User Behavior Profile</h3>
+    <ul class="behavior-list">
+      <li><b>Average Transaction:</b> ₹2,500</li>
+      <li><b>Common Locations:</b> Lucknow, Kanpur</li>
+      <li><b>Peak Activity Time:</b> 10 AM – 1 PM</li>
+      <li><b>Known Senders:</b> 78%</li>
+      <li><b>Trusted Devices:</b> 2</li>
+    </ul>
+    <p>
+      This profile is continuously updated as the user interacts with
+      the system. No manual input is required from the user.
+    </p>
+  </div>
+
+  <!-- -------- Founder Corner -------- -->
+  <div class="dash-card founder-corner">
+    <h3>👤 Founder’s Corner</h3>
+    <p>
+      FraudShield AI is conceptualized under the <b>Kavach Nexus</b> initiative
+      to solve modern digital payment fraud using intelligent,
+      explainable, and adaptive security.
+    </p>
+    <p>
+      Unlike traditional rule-based systems, Kavach Nexus focuses on
+      <b>behavior-driven intelligence</b> that evolves with user activity
+      and provides transparency in fraud decisions.
+    </p>
+    <p class="founder-highlight">
+      “Our mission is to protect users without interrupting
+      their normal digital payment experience.”
+    </p>
+    <span class="founder-sign">— Project Kavach Nexus</span>
+  </div>
+
+  <div class="fraud-analytics">
+  <h3>📊 Fraud Analytics</h3>
+  <canvas id="fraudChart"></canvas></div>
+
+</section>
+
+<!-- ===================== SEND ===================== -->
+<section id="send" class="section hidden">
+  <h2>📤 Send Money</h2>
+
+  <div class="dash-card">
+    <p>Outgoing transactions are analyzed before processing.</p>
+
+    <div class="payment-box">
+      <label>Amount</label>
+      <input type="number" id="amount" placeholder="Enter amount">
+
+      <label>Recipient</label>
+      <input type="text" id="recipient" placeholder="UPI / Account">
+
+      <button id="payBtn">Send Securely</button>
+      <div id="statusBox" class="status-box hidden"></div>
+    </div>
+  </div>
+  <div id="riskBox" class="risk-box hidden"></div>
+
+</section>
+
+<!-- ===================== RECEIVE ===================== -->
+<section id="receive" class="section hidden">
+  <h2>📥 Receive Money</h2>
+
+  <div class="dash-card">
+    <p>Incoming transactions are monitored in real time.</p>
+
+    <div class="request-card flagged">
+      <b>Status:</b> Incoming payment detected<br>
+      <b>Risk:</b> Medium<br>
+      <span class="risk">⚠️ Location mismatch detected</span>
+    </div>
+  </div>
+
+  <h2>Incoming Transactions</h2>
+
+  <table class="txn-table">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Amount</th>
+        <th>From</th>
+        <th>Risk</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="incomingBody">
+      <!-- JS se rows yahin add hongi -->
+    </tbody>
+  </table>
+  
+</section>
+
+
+<!-- ===================== REQUEST ===================== -->
+<section id="request" class="section hidden">
+  <h2>📨 Payment Requests</h2>
+
+  <div class="dash-card">
+    <div class="request-card flagged">
+      <b>Status:</b> Payment request pending<br>
+      <b>Amount:</b> ₹20,000<br>
+      <b>Risk:</b> High<br>
+      <span class="risk">⚠️ Unusual sender location</span>
+
+      <div class="request-actions">
+        <button class="btn-accept" onclick="handleRequest('ACCEPT')">Accept</button>
+        <button class="btn-reject" onclick="handleRequest('REJECT')">Reject</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AUTO CREDIT ===================== -->
+<section id="autocredit" class="section hidden">
+  <h2>🤖 Auto-Credit</h2>
+
+  <div class="dash-card">
+    <p>
+      Transactions from trusted senders and known locations
+      are automatically credited without user intervention.
+    </p>
+
+    <div class="request-card safe">
+      <b>Status:</b> Trusted source<br>
+      <span class="risk safe">✅ Auto-credited</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ALERTS ===================== -->
+<section id="alerts" class="section hidden">
+  <h2>🚨 Fraud Alerts</h2>
+
+  <div class="dash-card">
+    <table class="txn-table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Amount</th>
+          <th>From</th>
+          <th>Risk</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody id="fraudAlertsBody">
+        <!-- Firebase se HIGH risk rows yahan aayengi -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+
+<!-- ===================== SETTINGS ===================== -->
+<section id="settings" class="section hidden">
+  <h2>⚙️ Settings</h2>
+
+  <div class="dash-card">
+    <label><input type="checkbox" checked> Enable Fraud Alerts</label><br><br>
+    <label><input type="checkbox" checked> Location Monitoring</label><br><br>
+    <label><input type="checkbox" checked> Device Tracking</label>
+  </div>
+</section>
+
+</main>
+</div>
+
+
+</body>
+</html>
